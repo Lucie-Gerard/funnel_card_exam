@@ -6,11 +6,12 @@ import Account from '../components/Account.vue';
 const routes = [
     {
         path: '/',
-        //name: 'index',
+        name: 'index',
         component: App
     },
     {
         path: '/account',
+        name: 'account',
         component: Account
     }
 ];
