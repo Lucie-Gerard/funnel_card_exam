@@ -6,7 +6,7 @@
     <div class="px-8">
         <div class="flex justify-between mt-8 mb-10">
             <div class="flex items-center justify-start">
-                <h2 class="font-tillana text-lg mr-8">Your decks</h2>
+                <h2 class="font-tillana text-lg font-bold mr-8">Your decks</h2>
 
                 <vue-router to="">
                     <img src="../../../public/assets/img/deck/new-deck.png" alt="add a new deck"
