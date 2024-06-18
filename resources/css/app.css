@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "tillana";
+        src: url(../../public/assets/fonts/Tillana/Tillana-Regular.ttf) format('truetype');
+    }
+
+    @font-face {
+        font-family: "raleway";
+        src: url(../../public/assets/fonts/raleway/static/Raleway-Regular.ttf) format('truetype');
+    }
+}

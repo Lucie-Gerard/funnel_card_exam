@@ -9,9 +9,25 @@ export default {
     extend: {
       colors: {
         // Backgrounds colors
-        bgPrimary: 'rgb(186, 103, 181, .1)',
-        bgSecondary: 'rgb(1, 40, 154, .1)',
+        bgPrimary: 'rgb(200, 200, 253)',
+        bgSecondary: 'rgb(248, 249, 253)',
+        bgTernary: 'rgb(251, 242, 247)',
+
+        // Flaschards
+        fcColor: 'rgb(251, 242, 247)',
+
+        // Text color
+        txtColor: 'rgb(0, 10, 12)',
+
+        // Autre
+        primary: 'rgb(1, 40, 154)',
+        stroke: 'rgb(1, 40, 154, .3)',
       },
+      
+      fontFamily: {
+        tillana: ['tillana'],
+        raleway: ['raleway'],
+      }
     }
   },
   plugins: [],
