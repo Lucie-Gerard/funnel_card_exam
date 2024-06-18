@@ -11,7 +11,6 @@ export default {
         // Backgrounds colors
         bgPrimary: 'rgb(200, 200, 253)',
         bgSecondary: 'rgb(248, 249, 253)',
-        bgTernary: 'rgb(251, 242, 247)',
 
         // Flaschards
         fcColor: 'rgb(251, 242, 247)',
@@ -21,7 +20,7 @@ export default {
 
         // Autre
         primary: 'rgb(1, 40, 154)',
-        stroke: 'rgb(1, 40, 154, .3)',
+        stroke: 'rgb(1, 40, 154, .2)',
       },
       
       fontFamily: {
