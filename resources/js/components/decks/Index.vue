@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="flex justify-between mt-8 mb-10">
+    <div class="flex justify-between mb-10">
         <div class="flex items-center justify-start">
             <h2 class="text-lg font-bold mr-8">Your decks</h2>
 
@@ -30,12 +30,12 @@
 
     <section 
              class="flex">
-            <div v-for="deck in decks" :key='deck.id' 
+            <div  
                  class="flex flex-col place-items-center w-28 border-2 border-stroke rounded-sm">
-                <h3 class="my-4">{{ deck.name }}</h3>
+                <h3 class="my-4">German</h3>
 
-                <vue-router to="" class="item-center">
-                    <img src="../../../../public/assets/img/deck/edit.png" alt="edit"
+                <vue-router to="/card-listing" class="item-center">
+                    <img src="../../../../public/assets/img/deck/edit.png" alt="edit and display cards"
                         class="size-6 mb-4 justify-center">
                 </vue-router>
 

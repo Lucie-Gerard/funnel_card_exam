@@ -11,7 +11,7 @@ components: {
     <div class="bg-bgSecondary container mx-auto h-screen 
                 border-2 rounded-sm border-bgSecondary 
                 pb-5 my-4">
-        <header>
+        <header class="mb-8">
             <Nav/>
         </header>
 

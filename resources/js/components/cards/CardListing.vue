@@ -8,4 +8,6 @@
             <img src="../../../../public/assets/img/deck/edit.png" alt="Modify the name of the deck">
         <input/>
     </form>
+
+    <input type="text">
 </template>
