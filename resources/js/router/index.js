@@ -1,14 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import App from '../components/App.vue';
+import Index from '../components/decks/Index.vue';
+import CardListing from '../components/cards/CardListing.vue';
 import Account from '../components/Account.vue';
 
 const routes = [
     {
         path: '/',
         name: 'index',
-        component: App
+        component: Index,
+        children: [
+            {
+                path: '/card-listing',
+                name: 'cards',
+                component: CardListing
+            },
+        ]
     },
+
+    
+    
     {
         path: '/account',
         name: 'account',

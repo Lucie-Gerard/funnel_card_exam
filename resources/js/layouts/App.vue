@@ -1,23 +1,25 @@
 <script setup>
-import Nav from "../layouts/Nav.vue";
-import Index from "./Index.vue";
+import { RouterView } from "vue-router";
+import Nav from "./Nav.vue";
 
 components: {
-    Nav,
-        Index
+    Nav
 }
 </script>
 
 <template>
     <div class="bg-bgSecondary container mx-auto h-screen 
                 border-2 rounded-sm border-bgSecondary 
-                pb-5">
+                pb-5 my-4">
         <header>
-            <Nav />
+            <Nav/>
         </header>
-        <main>
-            <Index />
+
+        <main class="px-8">
+            <RouterView>
+            </RouterView>
         </main>
+    
     </div>
 
 </template>

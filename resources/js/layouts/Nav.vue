@@ -10,7 +10,7 @@
                      class="size-10">
             </router-link>
         </h1>
-        <ul class="flex font-raleway text-sm divide-x divide-stroke">
+        <ul class="flex text-sm divide-x divide-stroke">
             <li class="py-4 px-8">
                 <router-link :to="{ index }">
                              Your decks

@@ -4,9 +4,6 @@
         @include('template.partials._head')
     </head>
 
-    <body class="antialiased bg-bgPrimary h-full">
-        <div id="app" class="box-border h-screen mt-4">
-            <router-view/>
-        </div>
+    <body id='app' class="box-border bg-bgPrimary">
     </body>
 </html>
