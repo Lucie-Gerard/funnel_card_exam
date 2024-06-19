@@ -11,14 +11,20 @@
             </router-link>
         </h1>
         <ul class="flex text-sm divide-x divide-stroke">
-            <li class="py-4 px-8">
+            <li class="py-4 px-4">
                 <router-link :to="{ name: 'decks' }">
                              Your decks
                 </router-link>
             </li>
-            <li class="py-4 px-8">
+            <li class="py-4 px-4">
                 <router-link :to="{ name: 'account' }">
                              Your account
+                </router-link>
+            </li>
+            <li class="flex items-center px-2">
+                <router-link :to="{ name: 'login' }">
+                    <img src="../../../public/assets/img/nav/disconnect.png" alt="Disconnect"
+                         class="size-4">
                 </router-link>
             </li>
         </ul>

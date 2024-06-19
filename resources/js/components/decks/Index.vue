@@ -28,26 +28,26 @@
         Build your first deck
     </p>
 
-    <section 
+    <section
              class="flex">
             <div  
                  class="flex flex-col place-items-center w-28 border-2 border-stroke rounded-sm">
                 <h3 class="my-4">German</h3>
 
-                <vue-router :to="{ name: 'cards' }" class="mb-4">
+                <router-link :to="{ name: 'cards' }" class="mb-4">
                     <img src="../../../../public/assets/img/deck/edit.png" alt="edit and display cards"
                         class="size-6 justify-center">
-                </vue-router>
+                </router-link>
 
-                <vue-router to="" class="mb-4">
+                <router-link to="" class="mb-4">
                     <img src="../../../../public/assets/img/deck/play.png" alt="play"
                         class="size-6 justify-center">
-                </vue-router>
+                </router-link>
 
-                <vue-router to="" class="mb-4">
+                <router-link to="" class="mb-4">
                     <img src="../../../../public/assets/img/deck/delete.png" alt="delete"
                         class="size-6 justify-center">
-                </vue-router>
+                </router-link>
             </div>
     </section>
 </template>
