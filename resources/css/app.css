@@ -17,3 +17,11 @@
 h1, h2, h3, a, p {
     color: 000A0C;
 }
+
+h1, h2, h3 {
+    font-family: 'tillana';
+}
+
+* {
+    font-family: 'raleway';
+}
