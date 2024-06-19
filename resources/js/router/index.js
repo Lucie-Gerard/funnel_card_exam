@@ -7,11 +7,11 @@ import Account from '../components/Account.vue';
 const routes = [
     {
         path: '/',
-        name: 'index',
+        name: 'decks',
         component: Index,
         children: [
             {
-                path: '/card-listing',
+                path: 'card-listing',
                 name: 'cards',
                 component: CardListing
             },
@@ -30,7 +30,7 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
-    //linkActiveClass: "active"
+    activeClass: "active"
 });
 
 export default router;
