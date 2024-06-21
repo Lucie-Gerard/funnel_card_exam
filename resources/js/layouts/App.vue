@@ -1,9 +1,11 @@
 <script setup>
 import { RouterView } from "vue-router";
 import Nav from "./Nav.vue";
+import Main from "./Main.vue";
 
 components: {
-    Nav
+    Nav,
+    Main
 }
 </script>
 
@@ -15,10 +17,7 @@ components: {
             <Nav/>
         </header>
 
-        <main class="px-8">
-            <RouterView>
-            </RouterView>
-        </main>
+        <Main></Main>
     
     </div>
 
