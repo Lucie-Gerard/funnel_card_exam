@@ -30,3 +30,7 @@ h2 {
 * {
     font-family: 'raleway';
 }
+
+input {
+    background-color: rgb(251, 253, 255);
+}
