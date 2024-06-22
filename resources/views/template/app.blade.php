@@ -5,5 +5,6 @@
     </head>
 
     <body id='app' class="box-border bg-bgPrimary">
+
     </body>
 </html>
