@@ -1,8 +1,8 @@
 <script setup>
-import DefaultButton from '../modules/DefaultButton.vue';
+import AuthButton from '../modules/AuthButton.vue';
 
 components: [
-    DefaultButton
+    AuthButton
 ]
 </script>
 
@@ -28,19 +28,18 @@ components: [
                 placeholder=""
                        class="border-2 border-stroke rounded-sm mt-2 mb-8">
 
-                <DefaultButton class="mb-4">
+                <AuthButton class="mb-4">
                     <router-link :to="{ name: 'decks' }">
                         Log in
                     </router-link>
-                </DefaultButton> 
+                </AuthButton> 
             </form>
         
-            <DefaultButton>
+            <AuthButton>
                 <router-link :to="{ name: 'register' }">
                     Sign up
                 </router-link>
-            </DefaultButton>
-            
+            </AuthButton> 
         </main>
         
     </div>

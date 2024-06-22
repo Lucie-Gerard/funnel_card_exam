@@ -21,13 +21,16 @@ export default {
 
         // Autre
         primary: 'rgb(1, 40, 154)',
-        stroke: 'rgb(1, 40, 154, .2)',
+        stroke: 'rgb(1, 40, 154, .1)',
       },
       
       fontFamily: {
         tillana: ['tillana'],
         raleway: ['raleway'],
       }
+    },
+    boxShadow: {
+      'buttonShadow': '0px 2px 5px 0px slategrey',
     }
   },
   plugins: [],

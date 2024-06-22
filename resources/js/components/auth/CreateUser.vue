@@ -1,8 +1,8 @@
 <script setup>
-import DefaultButton from '../modules/DefaultButton.vue';
+import AuthButton from '../modules/AuthButton.vue';
 
 components: [
-    DefaultButton
+    AuthButton
 ]
 </script>
 
@@ -36,9 +36,9 @@ components: [
                 <input id="email" type="text"
                        class="border-2 border-stroke rounded-sm mt-2 mb-8 pl-2">
 
-                <DefaultButton>
+                <AuthButton>
                     Create account
-                </DefaultButton>
+                </AuthButton>
             </form>
         </main>
         

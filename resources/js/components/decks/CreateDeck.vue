@@ -2,6 +2,11 @@
 //csrf token
 const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
+import DefaultButton from '../modules/DefaultButton.vue';
+
+components: [
+    DefaultButton
+]
 </script>
 
 <template>
@@ -30,9 +35,8 @@ const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('con
             <option value="Animals">Animals</option>
         </select>
 
-        <button type="submit"
-                class="border-2 border-stroke rounded-md w-32 text-primary font-semibold">
+        <DefaultButton>
             Create deck
-        </button>
+        </DefaultButton>
     </form>
 </template>
