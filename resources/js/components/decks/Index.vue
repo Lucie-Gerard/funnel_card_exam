@@ -1,5 +1,18 @@
 <script setup>
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
 
+const decks = ref([]);
+
+onMounted(async () => {
+    await axios.get('api/decks')
+        .then(response => {
+            decks.value = response.data.decks;
+        })
+        .catch((error) => {
+            console.log(error.response.data);
+        })
+});
 </script>
 
 <template>
@@ -23,29 +36,43 @@
         </form>
     </div>
         
-    <p class="text-center">
+    <p class="text-center"
+       v-show="decks.length === 0">
         You have no deck yet. <br>
         Build your first deck
     </p>
 
-    <section class="flex">
-        <div class="flex flex-col place-items-center px-8 py-4 border-2 border-stroke rounded-sm">
-            <h3 class="mb-4">German</h3>
+    <section class="grid grid-cols-2 gap-x-2
+                    sm:grid-cols-4 sm:gap-x-4 
+                    md:gap-x-6
+                    xl:grid-cols-8 xl:gap-x-8">
+        <div class="flex flex-col
+                    relative
+                    place-items-center
+                    w-36 min-h-52 mb-8 
+                    border-2 border-stroke rounded-sm"
+             v-for="deck in decks" :key="deck.id">
 
-            <router-link :to="{ name: 'cards' }" class="mb-4">
-                <img src="../../../../public/assets/img/deck/edit.png" alt="edit and display cards"
-                    class="size-6 justify-center">
-            </router-link>
+                <h3 class="mt-4 mx-4">{{ deck.name }}</h3>
+                
+<!-- param: { id: deck.id } -->
+            <hr class="absolute bottom-28 border-1 border-stroke w-32 mb-4">
+            <div class="absolute bottom-4">
+                <router-link :to="{ name: 'cards',  }">
+                    <img src="../../../../public/assets/img/deck/edit.png" alt="edit deck's name and display cards"
+                        class="size-6 mb-4">
+                </router-link>
 
-            <router-link to="" class="mb-4">
-                <img src="../../../../public/assets/img/deck/play.png" alt="play"
-                    class="size-6 justify-center">
-            </router-link>
+                <router-link to="">
+                    <img src="../../../../public/assets/img/deck/play.png" alt="play cards"
+                        class="size-6 mb-4">
+                </router-link>
 
-            <router-link to="" class="">
-                <img src="../../../../public/assets/img/deck/delete.png" alt="delete"
-                    class="size-6 justify-center">
-            </router-link>
+                <router-link to="">
+                    <img src="../../../../public/assets/img/deck/delete.png" alt="delete deck"
+                        class="size-6">
+                </router-link>
+            </div>
         </div>
     </section>
 </template>
