@@ -8,15 +8,18 @@ components: [
 </script>
 
 <template>
-    <div class="bg-bgSecondary container mx-auto 
+    <div class="bg-bgSecondary container min-h-screen
                 border-2 rounded-sm border-bgSecondary 
-                pb-5 my-4">
+                pb-5 mx-0
+                sp:mx-auto
+                sm:my-8 ">
 
         <DefaultHeader></DefaultHeader>
 
         <main class="px-2
                      sm:px-4
-                     md:px-8">
+                     md:px-8
+                    ">
             <RouterView></RouterView>
         </main>
     </div>
