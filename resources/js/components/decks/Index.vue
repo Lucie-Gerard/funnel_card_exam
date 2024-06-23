@@ -42,35 +42,49 @@ onMounted(async () => {
         Build your first deck
     </p>
 
-    <section class="grid grid-cols-2 gap-x-2
+    <section class="grid grid-cols-3 gap-x-2
                     sm:grid-cols-4 sm:gap-x-4 
                     md:gap-x-6
                     xl:grid-cols-8 xl:gap-x-8">
         <div class="flex flex-col
                     relative
                     place-items-center
-                    w-36 min-h-52 mb-8 
+                    w-24 min-h-40
+                    sm:w-32 sm:min-h-52
+                    md:w-36 md:min-h-56 
+                    mb-8 
                     border-2 border-stroke rounded-sm"
              v-for="deck in decks" :key="deck.id">
 
-                <h3 class="mt-4 mx-4">{{ deck.name }}</h3>
+            <h3 class="mt-2 mx-4 max-h-10
+                       overflow-hidden
+                       text-xs
+                       sm:text-sm sm:max-h-32 sm:mt-4
+                       md:text-base md:max-h-36">
+                {{ deck.name }}
+            </h3>
                 
 <!-- param: { id: deck.id } -->
-            <hr class="absolute bottom-28 border-1 border-stroke w-32 mb-4">
+            <hr class="absolute border-1 border-stroke mb-4 w-0
+                       sm:w-24 bottom-28
+                       md:w-28 bottom-32">
             <div class="absolute bottom-4">
                 <router-link :to="{ name: 'cards',  }">
                     <img src="../../../../public/assets/img/deck/edit.png" alt="edit deck's name and display cards"
-                        class="size-6 mb-4">
+                        class="size-4 mb-4
+                               sm:size-6">
                 </router-link>
 
                 <router-link to="">
                     <img src="../../../../public/assets/img/deck/play.png" alt="play cards"
-                        class="size-6 mb-4">
+                        class="size-4 mb-4
+                               sm:size-6">
                 </router-link>
 
                 <router-link to="">
                     <img src="../../../../public/assets/img/deck/delete.png" alt="delete deck"
-                        class="size-6">
+                        class="size-4
+                               sm:size-6">
                 </router-link>
             </div>
         </div>
