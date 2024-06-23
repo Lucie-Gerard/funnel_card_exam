@@ -7,4 +7,5 @@
     <body id='app' class="box-border bg-bgPrimary">
 
     </body>
+    @vite('resources/js/app.js')
 </html>
