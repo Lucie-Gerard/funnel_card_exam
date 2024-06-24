@@ -13,3 +13,7 @@ Route::get('/', function () {
 Route::get('/deck/{id}/card-listing', function() {
     return view('template/app');
 });
+
+Route::get('/deck/{deck_id}/card/{card_id}', function() {
+    return view('template/app');
+});

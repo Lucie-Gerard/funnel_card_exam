@@ -36,19 +36,26 @@ onMounted(async() => {
            placeholder="Search for a card"
            class="border-2 border-stroke rounded-sm mr-8 pl-2">
 
-    <p class="text-center mt-10"
+    <p class="text-center mt-12"
        v-show="cards.length === 0">
         You have no cards in this deck.
     </p>
 
-    <ul class="mt-8">
+    <h2 class="sp:mt-4
+               sm:mt-8
+               sp:text-sm
+               sm:text-lg">
+      Liste des cartes du deck {{ deck.name }}
+   </h2>
+
+    <ul class="sp:mt-2 sm:mt-4">
        <li class="sp:mb-2
                   sm:mb-4
                   sp:text-xs
                   sm:text-sm
-                  text-Primary"
+                  text-primary"
            v-for="card in cards" :key="card.id">
-            <router-link :to="{ name: 'card', params: { id: deck.id, name: card.recto_name } }">
+            <router-link :to="{ name: 'card', params: { deck_id: deck.id, card_id: card.id } }">
                {{ card.recto_name }}
             </router-link>
        </li>

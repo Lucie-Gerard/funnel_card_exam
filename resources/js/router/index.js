@@ -8,6 +8,7 @@ import DefaultLayout from '../layouts/DefaultLayout.vue';
 import IndexDecks from '../components/decks/Index.vue';
 import CreateDeck from '../components/decks/CreateDeck.vue';
 import CardListing from '../components/cards/CardListing.vue';
+import Card from '../components/cards/Show.vue';
 import Account from '../components/users/Account.vue';
 
 const routes = [
@@ -31,7 +32,6 @@ const routes = [
         ],
     },
     
-
     {
         path: '/',
         redirect: {name: 'decks'},
@@ -50,9 +50,14 @@ const routes = [
                 component: CreateDeck
             },
             {
-                path: 'deck/card-listing',
+                path: 'deck/:id/card-listing',
                 name: 'cards',
                 component: CardListing
+            },
+            {
+                path: 'deck/:deck_id/card/:card_id',
+                name: 'card',
+                component: Card
             },
             {
                 path: 'account',
