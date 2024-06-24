@@ -1,5 +1,9 @@
 <script setup>
+import DefaultButton from '../modules/DefaultButton.vue';
 
+components: [
+    DefaultButton
+]
 </script>
 
 <template>
@@ -21,8 +25,8 @@
             <input id="newPassword" type="text"
                    class="border-2 border-stroke rounded-sm mt-2 mb-8 pl-2">
 
-            <button class="border-2 border-stroke rounded-md w-32 text-primary font-semibold">
+            <DefaultButton>
                 Modify
-            </button>
+            </DefaultButton>
         </form>
 </template>

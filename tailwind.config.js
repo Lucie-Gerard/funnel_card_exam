@@ -30,7 +30,7 @@ export default {
       }
     },
     boxShadow: {
-      'buttonShadow': '0px 2px 5px 0px slategrey',
+      'buttonShadow': '0px 1px 3px 0px slategrey',
     },
     screens: {
       'sp': '320px',
