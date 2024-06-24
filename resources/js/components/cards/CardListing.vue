@@ -14,8 +14,8 @@ const deck = ref([]);
 
 const id = route.params.id;
 
-onMounted(async() => {
-    await axios.get('/api/deck/' + id + '/card-listing')
+onMounted(() => {
+    axios.get('/api/deck/' + id + '/card-listing')
         .then(response => {
            cards.value = response.data.cards;
            deck.value = response.data.deck;

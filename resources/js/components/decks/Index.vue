@@ -80,7 +80,7 @@ onMounted(() => {
                                sm:size-6">
                 </router-link>
 
-                <router-link to="">
+                <router-link :to="{ name: 'playCards', params: { id: deck.id } }">
                     <img src="../../../../public/assets/img/deck/play.png" alt="play cards"
                         class="size-4 mb-4
                                sm:size-6">

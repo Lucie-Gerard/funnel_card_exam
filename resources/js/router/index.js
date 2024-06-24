@@ -7,9 +7,12 @@ import Register from '../components/auth/CreateUser.vue';
 import DefaultLayout from '../layouts/DefaultLayout.vue';
 import IndexDecks from '../components/decks/Index.vue';
 import CreateDeck from '../components/decks/CreateDeck.vue';
+
+import NewCard from '../components/cards/createCard.vue';
 import CardListing from '../components/cards/CardListing.vue';
 import Card from '../components/cards/Show.vue';
-import newCard from '../components/cards/createCard.vue';
+import PlayCards from '../components/cards/PlayCards.vue';
+
 import Account from '../components/users/Account.vue';
 
 const routes = [
@@ -51,6 +54,11 @@ const routes = [
                 component: CreateDeck
             },
             {
+                path: 'deck/:id/create-card',
+                name: 'newCard',
+                component: NewCard
+            },
+            {
                 path: 'deck/:id/card-listing',
                 name: 'cards',
                 component: CardListing
@@ -61,9 +69,9 @@ const routes = [
                 component: Card
             },
             {
-                path: 'deck/:id/create-card',
-                name: 'newCard',
-                component: newCard
+                path: 'deck/:id/play',
+                name: 'playCards',
+                component: PlayCards
             },
             {
                 path: 'account',
