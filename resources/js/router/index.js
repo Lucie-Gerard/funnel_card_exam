@@ -9,6 +9,7 @@ import IndexDecks from '../components/decks/Index.vue';
 import CreateDeck from '../components/decks/CreateDeck.vue';
 import CardListing from '../components/cards/CardListing.vue';
 import Card from '../components/cards/Show.vue';
+import newCard from '../components/cards/createCard.vue';
 import Account from '../components/users/Account.vue';
 
 const routes = [
@@ -58,6 +59,11 @@ const routes = [
                 path: 'deck/:deck_id/card/:card_id',
                 name: 'card',
                 component: Card
+            },
+            {
+                path: 'deck/:id/create-card',
+                name: 'newCard',
+                component: newCard
             },
             {
                 path: 'account',
