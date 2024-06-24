@@ -26,4 +26,14 @@ class DeckController extends Controller
             'deck' => $deck
         ]);
     }
+
+    public function cardShow(int $deck_id, int $card_id) {
+        $card = Card::find($card_id);
+        $deck = Deck::find($deck_id);
+
+        return response()->json([
+            'card' => $card,
+            'deck' => $deck
+        ]);
+    }
 }

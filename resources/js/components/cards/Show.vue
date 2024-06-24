@@ -1,12 +1,32 @@
 <script setup>
 import DefaultButton from '../modules/DefaultButton.vue';
 import axios from 'axios';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import { useRoute } from 'vue-router'
+
 
 components: [
     DefaultButton
 ];
 
+
+const route = useRoute();
+const card = ref([]);
+const deck = ref([]);
+
+const deck_id = route.params.deck_id;
+const card_id = route.params.card_id;
+
+onMounted(async() => {
+    await axios.get('/api/deck/' + deck_id + '/card/' + card_id)
+        .then(response => {
+           card.value = response.data.card;
+           deck.value = response.data.deck;
+        })
+        .catch((error) => {
+            console.log(error.response.data);
+        })
+});
 
 </script>
 
@@ -40,11 +60,13 @@ components: [
                     sm:w-96">
             <div>
                 <label for="recto"
-                    class="font-semibold">
+                    class="font-semibold
+                           text-xs
+                           sm:text-sm">
                     Recto: 
                 </label>
-                <textarea name="recto" id="recto" cols="20" rows="10"
-                        value="{{ card.recto_name }}"
+                <textarea name="recto" id="recto" cols="10" rows="10"
+                        :value="card.recto_name"
                         class="border-2 border-stroke mb-8
                                w-full">
                 </textarea>
@@ -52,11 +74,13 @@ components: [
             
             <div>
                 <label for="verso"
-                    class="font-semibold">
+                    class="font-semibold
+                           text-xs
+                           sm:text-sm">
                     Verso:
                 </label>
                 <textarea name="verso" id="verso" cols="10" rows="10"
-                          value="{{ card.verso_name }}"
+                          :value="card.verso_name"
                           class="border-2 border-stroke mb-12
                                  w-full">
                 </textarea>
