@@ -9,7 +9,6 @@ class Card extends Model
 {
     use HasFactory;
 
-
     public function deck() {
         return $this->belongsTo(Deck::class);
     }

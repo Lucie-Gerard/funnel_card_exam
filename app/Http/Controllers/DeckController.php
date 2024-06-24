@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Card;
 use App\Models\Deck;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DeckController extends Controller
 {
@@ -12,6 +14,16 @@ class DeckController extends Controller
 
         return response()->json([
             'decks' => $decks
+        ]);
+    }
+
+    public function show(int $id) {
+        $cards = Card::where('deck_id', $id)->get();
+        $deck = Deck::find($id);
+
+        return response()->json([
+            'cards' => $cards,
+            'deck' => $deck
         ]);
     }
 }

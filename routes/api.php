@@ -9,4 +9,7 @@ use App\Http\Controllers\DeckController;
 // })->middleware('auth:sanctum');
 
 // INDEX
-Route::get('/decks', [DeckController::class, 'index']);
+Route::get('decks', [DeckController::class, 'index']);
+
+// SHOW
+Route::get('deck/{id}/card-listing', [DeckController::class, 'show']);

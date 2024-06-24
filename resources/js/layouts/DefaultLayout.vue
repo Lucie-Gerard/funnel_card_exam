@@ -12,7 +12,7 @@ components: [
                 border-2 rounded-sm border-bgSecondary 
                 pb-5 mx-0
                 sp:mx-auto
-                sm:my-8 ">
+                sm:my-8">
 
         <DefaultHeader></DefaultHeader>
 

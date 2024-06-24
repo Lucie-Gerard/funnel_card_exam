@@ -1,15 +1,15 @@
 <?php
-
-use App\Http\Controllers\DeckController;
-use App\Models\Deck;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DeckController;
 
-Route::get('/{any}', function () {
+Route::any('{slug}', function () {
+    return view('template/app');
+});
+
+Route::get('/', function () {
         return view('template/app');
-    })->where('any', '.*');
+    });
 
-// Route::get('/decks', function() {
-//     return view('template/app');
-// });
-
-
+Route::get('/deck/{id}/card-listing', function() {
+    return view('template/app');
+});

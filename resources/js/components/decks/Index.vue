@@ -4,8 +4,8 @@ import { onMounted, ref } from 'vue';
 
 const decks = ref([]);
 
-onMounted(async () => {
-    await axios.get('api/decks')
+onMounted(() => {
+    axios.get('/api/decks')
         .then(response => {
             decks.value = response.data.decks;
         })
@@ -71,11 +71,10 @@ onMounted(async () => {
                 {{ deck.name }}
             </h3>
                 
-<!-- param: { id: deck.id } -->
             <hr class="absolute border-1 border-stroke mb-4 w-0
                        md:w-28 bottom-32">
             <div class="absolute bottom-4">
-                <router-link :to="{ name: 'cards',  }">
+                <router-link :to="{ name: 'cards', params: { id: deck.id } }">
                     <img src="../../../../public/assets/img/deck/edit.png" alt="edit deck's name and display cards"
                         class="size-4 mb-4
                                sm:size-6">
