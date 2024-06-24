@@ -21,7 +21,7 @@ onMounted(() => {
             <h2 class="mr-8
                        text-xs
                        sm:text-sm
-                       md:text-base">
+                       md:text-lg">
                        Your decks
             </h2>
 
