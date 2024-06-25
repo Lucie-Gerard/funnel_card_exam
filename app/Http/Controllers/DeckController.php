@@ -84,10 +84,9 @@ class DeckController extends Controller
         $deck->save();
 
         return redirect('/decks');
-        //$rs = Deck::insert([$name, $user_id, $category_id, ]);
+    }
 
-        // return response()->JSON([
-        //     $rs
-        // ]);
+    public function destroy(int $id) {
+        Deck::destroy($id);
     }
 }

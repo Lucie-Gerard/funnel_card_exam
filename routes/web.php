@@ -31,3 +31,4 @@ Route::get('/deck/{deck_id}/play', function() {
 
 // INSERT
 Route::post('/decks/create', [DeckController::class, 'deckStore']);
+

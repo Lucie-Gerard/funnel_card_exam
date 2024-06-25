@@ -13,6 +13,16 @@ onMounted(() => {
             console.log(error.response.data);
         })
 });
+
+const deleteDeck = (id, index)  => {
+    axios.delete('/api/decks/delete/' + id)
+        .then(response => {
+            decks.value.splice(index, 1);
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+}
 </script>
 
 <template>
@@ -61,7 +71,7 @@ onMounted(() => {
                     md:w-36 md:min-h-56 
                     mb-8 
                     border-2 border-stroke rounded-sm"
-             v-for="deck in decks" :key="deck.id">
+             v-for="(deck, index) in decks" :key="deck.id">
 
             <h3 class="mt-2 mx-4 max-h-10
                        overflow-hidden
@@ -86,11 +96,11 @@ onMounted(() => {
                                sm:size-6">
                 </router-link>
 
-                <router-link to="">
+                <button @click="deleteDeck(deck.id, index)">
                     <img src="../../../../public/assets/img/deck/delete.png" alt="delete deck"
                         class="size-4
                                sm:size-6">
-                </router-link>
+                </button>
             </div>
         </div>
     </section>
