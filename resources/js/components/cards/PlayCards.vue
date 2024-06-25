@@ -29,11 +29,15 @@ onMounted(() => {
 
 const answer = ref(false);
 
-const yes = ref(false);
-const no = ref(false);
-
 const nextBtn = ref(false);
-const nextCard = ref(0);
+const nextCard = computed(() => {
+let length = ref(0);
+    length++;
+
+    return cards.value.length;
+});
+
+console.log(cards)
 </script>
 
 <template>
@@ -45,29 +49,30 @@ const nextCard = ref(0);
     </h2>
 
     <section class="flex flex-col place-items-center">
-        <div v-for="(card, index) in cards" :key="card.id"
-             class="sp:text-sm sp:w-60 sp:min-h-60 sp:mb-4
+        <div v-for="(card, index) in cards" :key="card.id">
+            <div class="sp:text-sm sp:w-60 sp:min-h-60 sp:mb-4
                     sm:text-base sm:w-96 sm:min-h-80 sm:mb-8
-                    border-2 border-stroke"
-                    v-show="!index">
-            <p class="px-8 my-4">
-                {{ card.recto_name }}
-                {{ index }}
-                {{ 'count: ' }}
-            </p>
+                    border-2 border-stroke">
+                <p class="px-8 my-4">
+                    {{ card.recto_name }}
+                    {{ card.id }}
+                    {{  }}
+                </p>
 
-            <hr class="sp:w-48 sm:w-80 mx-auto">
+                <hr class="sp:w-48 sm:w-80 mx-auto">
 
-            <p class="px-8 mt-4"
-               v-show="answer">
-                {{ card.verso_name }}
-            </p>
+                <p class="px-8 mt-4"
+                v-show="answer">
+                    {{  }}
+                </p>
+            </div>
         </div>
 
         <DefaultButton class="mb-4
-                              sp:text-xs
-                              sm:text-sm" 
-                        @click="answer = true">
+                      sp:text-xs
+                      sm:text-sm"
+                @click="answer=true" 
+                >
             Show the answer
         </DefaultButton>
 
@@ -75,8 +80,8 @@ const nextCard = ref(0);
         <div class="flex items-end 
                     sp:gap-4 sp:text-xs sp:mt-4
                     sm:gap-8 sm:text-sm sm:mt-8"
-             v-show="answer">
-             <p>
+            v-show="answer">
+            <p>
                 Was your answer correct ?
             </p>
 
@@ -91,12 +96,10 @@ const nextCard = ref(0);
         </div>
 
         <DefaultButton class="sp:text-xs sp:mt-8
-                              sm:text-sm sm:mt-12"
-                       v-show="nextBtn"
-                       @click="nextCard++">
+                            sm:text-sm sm:mt-12"
+                    v-show="nextBtn"
+                    @click="nextCard++">
             Next
         </DefaultButton>
     </section>
- 
-
 </template>
