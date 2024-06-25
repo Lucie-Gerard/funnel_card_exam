@@ -11,6 +11,10 @@ Route::get('/', function () {
         return view('template/app');
     });
 
+Route::get('/decks/create', function() {
+    return view('template/app');
+});
+
     // SHOW
 Route::get('/deck/{id}/card-listing', function() {
     return view('template/app');
@@ -25,7 +29,5 @@ Route::get('/deck/{deck_id}/play', function() {
     return view('template/app');
 });
 
-// CREATE
-Route::get('/decks/create', function() {
-    return view('template/app');
-});
+// INSERT
+Route::post('/decks/create', [DeckController::class, 'deckStore']);

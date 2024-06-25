@@ -15,4 +15,4 @@ Route::get('decks/create', [DeckController::class, 'index']);
 // SHOW
 Route::get('deck/{id}/card-listing', [DeckController::class, 'show']);
 Route::get('deck/{deck_id}/card/{card_id}', [DeckController::class, 'cardShow']);
-Route::get('/deck/{deck_id}/play', [DeckController::class, 'show']);
+Route::get('deck/{deck_id}/play', [DeckController::class, 'show']);

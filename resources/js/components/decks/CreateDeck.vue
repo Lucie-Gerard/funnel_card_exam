@@ -22,6 +22,26 @@ onMounted(() => {
         })
 });
 
+const deck_name = ref('');
+const catId = ref();
+//const userId = 1;
+
+function postDeck() {
+    axios.post('/decks/create', {
+        'name': deck_name,
+        //'user_id': userId,
+        'category_id': catId,
+    })
+        .then(response => {
+            console.log('Deck successfully created');
+        })
+        .catch(error => {
+            console.log(error);
+            alert('There was a problem, the deck is not created');
+        });
+} 
+    
+
 
 </script>
 
@@ -29,27 +49,27 @@ onMounted(() => {
     <h2 class="mb-16">
         Create a new deck
     </h2>
-    <form method="POST" action="/decks"
+    <form method="POST"
           enctype="application/x-www-form-urlencoded"
           class="flex flex-col items-center mb-4">
         <input type="hidden" name="_token" :value="csrf">
 
         <input type="text"
-               name="name"
+               name="name" v-model="deck_name"
                class="border-2 border-stroke rounded-sm mb-8 pl-2"
                placeholder="Name your deck" />
 
         <label for="category">
             Choose a category
         </label>
-        <select name="category_id" id="category"
+        <select name="category_id" id="category" v-model="catId"
                 class="border-2 border-stroke rounded-sm mb-12 mt-4 pl-2">
                 <option v-for="category in categories" :key="category.id"
-                        value="{{ category.name }}">{{ category.name }}
+                        :value="category.id">{{ category.name }}
                 </option>
         </select>
 
-        <DefaultButton>
+        <DefaultButton @click="postDeck">
             Create deck
         </DefaultButton>
     </form>
