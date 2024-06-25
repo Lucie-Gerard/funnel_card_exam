@@ -3,10 +3,26 @@
 const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
 import DefaultButton from '../modules/DefaultButton.vue';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 
 components: [
     DefaultButton
 ]
+
+const categories = ref([]);
+
+onMounted(() => {
+    axios.get('/api/decks/create')
+        .then(response => {
+            categories.value = response.data.categories;
+        })
+        .catch((error) => {
+            console.log(error.response.data);
+        })
+});
+
+
 </script>
 
 <template>
@@ -28,11 +44,9 @@ components: [
         </label>
         <select name="category_id" id="category"
                 class="border-2 border-stroke rounded-sm mb-12 mt-4 pl-2">
-            <option value="Languages">Languages</option>
-            <option value="Math">Math</option>
-            <option value="Sciences">Sciences</option>
-            <option value="Nature">Nature</option>
-            <option value="Animals">Animals</option>
+                <option v-for="category in categories" :key="category.id"
+                        value="{{ category.name }}">{{ category.name }}
+                </option>
         </select>
 
         <DefaultButton>

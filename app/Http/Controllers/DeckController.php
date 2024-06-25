@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Card;
+use App\Models\Category;
 use App\Models\Deck;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,9 +12,11 @@ class DeckController extends Controller
 {
     public function index() {
         $decks = Deck::all();
+        $categories = Category::all();
 
         return response()->json([
-            'decks' => $decks
+            'decks' => $decks,
+            'categories' => $categories
         ]);
     }
 

@@ -24,3 +24,8 @@ Route::get('/deck/{deck_id}/card/{card_id}', function() {
 Route::get('/deck/{deck_id}/play', function() {
     return view('template/app');
 });
+
+// CREATE
+Route::get('/decks/create', function() {
+    return view('template/app');
+});
