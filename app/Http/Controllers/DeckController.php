@@ -101,8 +101,12 @@ class DeckController extends Controller
 
 
     // DESTROY
-    public function destroy(int $id) {
+    public function destroyDeck(int $id) {
         Deck::destroy($id);
+    }
+
+    public function destroyCard(int $id) {
+        Card::destroy($id);
     }
 
 }

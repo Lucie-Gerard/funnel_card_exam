@@ -18,4 +18,5 @@ Route::get('deck/{deck_id}/card/{card_id}', [DeckController::class, 'cardShow'])
 Route::get('deck/{deck_id}/play', [DeckController::class, 'show']);
 
 // DESTROY
-Route::delete('/decks/delete/{id}', [DeckController::class, 'destroy']);
+Route::delete('/decks/delete/{id}', [DeckController::class, 'destroyDeck']);
+Route::delete('/cards/delete/{id}', [DeckController::class, 'destroyCard']);
