@@ -37,7 +37,6 @@ function postDeck() {
         })
         .catch(error => {
             console.log(error);
-            alert('There was a problem, the deck is not created');
         });
 } 
     

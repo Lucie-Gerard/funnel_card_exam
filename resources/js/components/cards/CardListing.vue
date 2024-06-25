@@ -1,7 +1,7 @@
 <script setup>
 import DefaultButton from '../modules/DefaultButton.vue';
 import axios from 'axios';
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router'
 
 components: [
@@ -33,11 +33,10 @@ onMounted(() => {
        <input type="text"
               class="border-2 border-stroke rounded-sm mr-4 pl-2 w-96"
               placeholder="Modify the name of your deck" />
-         <router-link>
+         <button>
             <img src="../../../../public/assets/img/deck/edit.png" alt="Modify the name of the deck"
-                class="size-4">
-         </router-link>
-           
+                class="size-4">  
+         </button>           
    </form>
 
    <div class="flex items-center justify-start">

@@ -38,7 +38,7 @@ class DeckController extends Controller
      * @return array
      */
     public function show(int $id) {
-        $cards = Card::where('deck_id', $id)->get();
+        $cards = Card::where('deck_id', $id)->orderBy('recto_name')->get();
         $deck = Deck::find($id);
 
         return response()->json([
@@ -86,7 +86,23 @@ class DeckController extends Controller
         return redirect('/decks');
     }
 
+
+    public function cardStore(Request $request, int $id): RedirectResponse {
+        $card = new Card;
+
+        $card->recto_name = $request->get('recto_name');
+        $card->verso_name = $request->get('verso_name');
+        $card->deck_id    = $id;
+
+        $card->save();
+
+        return redirect()->route('card-listing', [$id]);
+    }
+
+
+    // DESTROY
     public function destroy(int $id) {
         Deck::destroy($id);
     }
+
 }
