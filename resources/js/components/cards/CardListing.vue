@@ -51,11 +51,6 @@ onMounted(() => {
       </router-link>
    </div>
 
-   <p class="text-center mt-12"
-      v-show="cards.length === 0">
-       You have no cards in this deck.
-   </p>
-
    <h2 class="sp:mt-4
               sm:mt-8
               sp:text-sm
@@ -63,6 +58,11 @@ onMounted(() => {
      Liste des cartes du deck {{ deck.name }}
    </h2>
 
+   <p class="text-center mt-12"
+      v-show="cards.length === 0">
+       You have no cards in this deck.
+   </p>
+   
    <ul class="sp:mt-2 sm:mt-4">
       <li class="sp:mb-2
                  sm:mb-4
