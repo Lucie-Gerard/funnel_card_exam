@@ -30,12 +30,13 @@ onMounted(() => {
 const answer = ref(false);
 
 const nextBtn = ref(false);
-const nextCard = computed(() => {
-let length = ref(0);
-    length++;
+const nextCard = ref(0);
+// const nextCard = computed(() => {
+// let length = ref(0);
+//     length++;
 
-    return cards.value.length;
-});
+//     return cards.value.length;
+// });
 
 console.log(cards)
 </script>
@@ -52,10 +53,11 @@ console.log(cards)
         <div v-for="(card, index) in cards" :key="card.id">
             <div class="sp:text-sm sp:w-60 sp:min-h-60 sp:mb-4
                     sm:text-base sm:w-96 sm:min-h-80 sm:mb-8
-                    border-2 border-stroke">
+                    border-2 border-stroke"
+                    v-if="index === nextCard">
                 <p class="px-8 my-4">
                     {{ card.recto_name }}
-                    {{ card.id }}
+                    {{ nextCard }}: {{ index }}
                     {{  }}
                 </p>
 
@@ -63,7 +65,7 @@ console.log(cards)
 
                 <p class="px-8 mt-4"
                 v-show="answer">
-                    {{  }}
+                    {{ card.verso_name }}
                 </p>
             </div>
         </div>
@@ -71,8 +73,7 @@ console.log(cards)
         <DefaultButton class="mb-4
                       sp:text-xs
                       sm:text-sm"
-                @click="answer=true" 
-                >
+                @click="answer=true">
             Show the answer
         </DefaultButton>
 
@@ -86,20 +87,13 @@ console.log(cards)
             </p>
 
             <DefaultButton class=""
-                        @click="nextBtn = true">
+                        @click="nextCard++">
                 Yes
             </DefaultButton>
             <DefaultButton class=""
-                        @click="nextBtn = true">
+                        @click="nextCard++">
                 No
             </DefaultButton>   
         </div>
-
-        <DefaultButton class="sp:text-xs sp:mt-8
-                            sm:text-sm sm:mt-12"
-                    v-show="nextBtn"
-                    @click="nextCard++">
-            Next
-        </DefaultButton>
     </section>
 </template>
