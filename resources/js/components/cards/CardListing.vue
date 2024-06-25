@@ -1,4 +1,7 @@
 <script setup>
+//csrf token
+const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
 import DefaultButton from '../modules/DefaultButton.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
@@ -25,6 +28,19 @@ onMounted(() => {
         })
 });
 
+
+const name = ref('');
+
+function updateDeck(id) {
+   axios.put('/deck/' + id + '/card-listing', {
+      'name': name
+   })
+   .catch((error) => {
+       console.log(error)
+   });
+}
+
+
 const deleteCard = (id, index)  => {
     axios.delete('/api/cards/delete/' + id)
         .then(response => {
@@ -37,12 +53,14 @@ const deleteCard = (id, index)  => {
 </script>
 
 <template>
-   <form method="" action=""
+   <form method="post"
          class="flex items-center mb-4">
-       <input type="text"
+      <input type="hidden" name="_token" :value="csrf">
+
+      <input type="text" name="name" v-model="name"
               class="border-2 border-stroke rounded-sm mr-4 pl-2 w-96"
               placeholder="Modify the name of your deck" />
-         <button>
+         <button @click="updateDeck(deck.id)">
             <img src="../../../../public/assets/img/deck/edit.png" alt="Modify the name of the deck"
                 class="size-4">  
          </button>           

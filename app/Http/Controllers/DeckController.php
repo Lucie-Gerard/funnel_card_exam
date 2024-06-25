@@ -28,6 +28,7 @@ class DeckController extends Controller
         ]);
     }
 
+
     // SHOW
 
     /**
@@ -65,6 +66,7 @@ class DeckController extends Controller
         ]);
     }
 
+
     // INSERT
 
     /**
@@ -83,10 +85,17 @@ class DeckController extends Controller
 
         $deck->save();
 
-        return redirect('/decks');
+        return redirect()->route('home');
     }
 
-
+    /**
+     * cardStore
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param integer $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function cardStore(Request $request, int $id): RedirectResponse {
         $card = new Card;
 
@@ -100,11 +109,57 @@ class DeckController extends Controller
     }
 
 
+    // UPDATE
+    /**
+     * updateDeck
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param integer $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updateDeck(Request $request, int $id): RedirectResponse {
+        $deck = Deck::find($id);
+
+        $deck->name = $request->get('name');
+
+        $deck->update();
+
+        return redirect()->route('card-listing', [$id]);
+    }
+
+    public function updateCard(Request $request, int $deck_id, int $card_id): RedirectResponse {
+        $card = Card::find($card_id);
+
+        $card->recto_name = $request->get('recto_name');
+        $card->verso_name = $request->get('verso_name');
+
+        $card->update();
+
+        return redirect()->route('card-listing', [$deck_id]);
+    }
+
+
     // DESTROY
+
+    /**
+     * destroyDeck
+     *
+     * @param integer $id
+     *
+     * @return void
+     */
     public function destroyDeck(int $id) {
         Deck::destroy($id);
     }
 
+    /**
+     * destroyCard
+     *
+     * @param integer $id
+     *
+     * @return void
+     */
     public function destroyCard(int $id) {
         Card::destroy($id);
     }

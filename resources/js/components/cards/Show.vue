@@ -1,4 +1,7 @@
 <script setup>
+//csrf token
+const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
 import DefaultButton from '../modules/DefaultButton.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
@@ -28,6 +31,20 @@ onMounted(async() => {
         })
 });
 
+
+const recto = ref('');
+const verso = ref('');
+
+function updateCard(deck_id, card_id) {
+    axios.put('/deck/' + deck_id + '/card' + card_id, {
+        'recto_name': recto,
+        'verso_name': verso
+    })
+    .catch((error) => {
+        console.log(error)
+    });
+}
+
 </script>
 
 <template>
@@ -50,44 +67,53 @@ onMounted(async() => {
     </div> -->
     
 
-    <form method="" action=""
+    <form method="POST" action=""
           class="flex flex-col
                  place-items-center
                  mt-12">
+        <input type="hidden" name="_token" :value="csrf">         
 
         <div class="xl:flex-row
                     sp:w-60
                     sm:w-96">
             <div>
-                <label for="recto"
-                    class="font-semibold
-                           text-xs
-                           sm:text-sm">
-                    Recto: 
-                </label>
-                <textarea name="recto" id="recto" cols="10" rows="10"
-                        :value="card.recto_name"
-                        class="border-2 border-stroke mb-8
+                <div class="flex text-xs sm:text-sm">
+                    <label for="verso"
+                           class="font-semibold">
+                        Recto
+                    </label>
+                    <p class="sp:ml-4 sm:ml-20">
+                        Initial keyword or definition : <br>
+                        {{ card.recto_name }}
+                    </p>
+                </div>
+                <textarea name="recto_name" id="recto" v-model="recto" cols="10" rows="5"
+                          placeholder="Modify"
+                          class="border-2 border-stroke mb-8
                                w-full">
                 </textarea>
             </div>
             
             <div>
-                <label for="verso"
-                    class="font-semibold
-                           text-xs
-                           sm:text-sm">
-                    Verso:
-                </label>
-                <textarea name="verso" id="verso" cols="10" rows="10"
-                          :value="card.verso_name"
+                <div class="flex text-xs sm:text-sm">
+                    <label for="verso"
+                           class="font-semibold">
+                        Verso
+                    </label>
+                    <p class="sp:ml-4 sm:ml-20">
+                        Initial answer : <br>
+                        {{ card.verso_name }}
+                    </p>
+                </div>
+                <textarea name="verso_name" id="verso" v-model="verso" cols="10" rows="5"
+                          placeholder="Modify"
                           class="border-2 border-stroke mb-12
                                  w-full">
                 </textarea>
             </div>
         </div>
         
-        <DefaultButton>
+        <DefaultButton @click="updateCard(card.id)">
             Done
         </DefaultButton>
     </form>

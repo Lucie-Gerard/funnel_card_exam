@@ -73,7 +73,6 @@ function postCard() {
                         class="border-2 border-stroke mb-8
                                w-full">
                 </textarea>
-                <div>Vois {{ recto }}</div>
             </div>
             
             <div>
@@ -88,7 +87,6 @@ function postCard() {
                           class="border-2 border-stroke mb-12
                                  w-full">
                 </textarea>
-                <div>Vois {{ verso }}</div>
             </div>
         </div>
         

@@ -18,7 +18,7 @@ onMounted(() => {
             categories.value = response.data.categories;
         })
         .catch((error) => {
-            console.log(error.response.data);
+            console.log(error);
         })
 });
 
@@ -27,7 +27,7 @@ const catId = ref();
 //const userId = 1;
 
 function postDeck() {
-    axios.post('/decks/create', {
+    axios.post('/deck/create', {
         'name': deck_name,
         //'user_id': userId,
         'category_id': catId,
