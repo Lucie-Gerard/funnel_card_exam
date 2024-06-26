@@ -80,7 +80,7 @@ const score = ref(0);
                 <p class="text-xs sm:text-sm md:text-base">
                     Was your answer correct ?
                 </p>
-                <div @click.stop="nextCard++">
+                <div @click="nextCard++">
                     <DefaultButton @click="score++">
                         Yes
                     </DefaultButton>
