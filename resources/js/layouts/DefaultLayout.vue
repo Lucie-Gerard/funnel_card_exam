@@ -11,7 +11,7 @@ components: [
     <div class="bg-bgSecondary container min-h-screen
                 border-2 rounded-sm border-bgSecondary 
                 pb-5 mx-0
-                sp:mx-auto
+                sp:mx-auto sp:my-2
                 sm:my-8">
 
         <DefaultHeader></DefaultHeader>
