@@ -2,12 +2,14 @@
 //csrf token
 const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
+import Input from '../modules/Input.vue';
 import DefaultButton from '../modules/DefaultButton.vue';
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
 components: [
-    DefaultButton
+    DefaultButton,
+    Input
 ]
 
 const categories = ref([]);
@@ -45,7 +47,9 @@ function postDeck() {
 </script>
 
 <template>
-    <h2 class="mb-16">
+    <h2 class="mb-8 sm:mb-16
+               mr-2 sm:mr-8
+               text-xs sm:text-sm md:text-lg">
         Create a new deck
     </h2>
     <form method="POST"
@@ -53,16 +57,17 @@ function postDeck() {
           class="flex flex-col items-center mb-4">
         <input type="hidden" name="_token" :value="csrf">
 
-        <input type="text"
-               name="name" v-model="deck_name"
-               class="border-2 border-stroke rounded-sm mb-8 pl-2"
+        <Input name="name" v-model="deck_name"
+               class="mb-4 sm:mb-8 pl-2"
                placeholder="Name your deck" />
-
-        <label for="category">
+        
+        <label for="category"
+               class="text-xs sm:text-sm md:text-lg">
             Choose a category
         </label>
         <select name="category_id" id="category" v-model="catId"
-                class="border-2 border-stroke rounded-sm mb-12 mt-4 pl-2">
+                class="border-2 border-stroke rounded-sm mb-8 sm:mb-12 mt-4 pl-2
+                       text-xs sm:text-sm md:text-lg">
                 <option v-for="category in categories" :key="category.id"
                         :value="category.id">{{ category.name }}
                 </option>
