@@ -33,24 +33,22 @@ const deleteDeck = (id, index)  => {
 <template>
     <div class="flex justify-between mb-4 sm:mb-10">
         <div class="flex items-center justify-start">
-            <h2 class="mr-8
-                       text-xs
-                       sm:text-sm
-                       md:text-lg">
+            <h2 class="mr-2 sm:mr-8
+                       text-xs sm:text-sm md:text-lg">
                        Your decks
             </h2>
 
             <router-link :to="{ name: 'createDeck' }">
                 <img src="../../../../public/assets/img/deck/new-deck.png" alt="add a new deck"
-                    class="size-4 hover:size-5">
+                    class="size-3 sm:size-4 lg:size-5">
             </router-link>
         </div>
 
         <form class="flex items-center justify-end relative">
             <Input placeholder="Search for a deck"
                     class="mr-2 sm:mr-4
-                          pl-1 sm:pl-2
-                          pr-6 sm:pr-8" />
+                           sm:pl-2
+                           pr-6 sm:pr-8" />
             <img src="../../../../public/assets/img/deck/search-icon.png" alt="search for a deck"
                 class="size-2 sm:size-4 absolute right-4 sm:right-6">
         </form>
