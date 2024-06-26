@@ -2,13 +2,15 @@
 //csrf token
 const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
+import Input from '../modules/Input.vue';
 import DefaultButton from '../modules/DefaultButton.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router'
 
 components: [
-    DefaultButton
+    DefaultButton,
+    Input
 ];
 
 const route = useRoute();
@@ -57,9 +59,10 @@ const deleteCard = (id, index)  => {
          class="flex items-center mb-4">
       <input type="hidden" name="_token" :value="csrf">
 
-      <input type="text" name="name" v-model="name"
-              class="border-2 border-stroke rounded-sm mr-4 pl-2 w-96"
-              placeholder="Modify the name of your deck" />
+      <Input name="name" v-model="name"
+             class="mr-2 sm:mr-4 pl-2 w-60 sm:w-96"
+             placeholder="Modify the name of your deck" />
+
          <button @click="updateDeck(deck.id)">
             <img src="../../../../public/assets/img/deck/edit.png" alt="Modify the name of the deck"
                 class="size-4">  
@@ -67,20 +70,17 @@ const deleteCard = (id, index)  => {
    </form>
 
    <div class="flex items-center justify-start">
-         <input type="text"
-          placeholder="Search for a card"
-          class="border-2 border-stroke rounded-sm mr-16 pl-2">
+        <Input class="mr-8 sm:mr-16 pl-2"
+               placeholder="Search for a card" />
 
       <router-link :to="{ name: 'newCard', params: {id: deck.id} }">
          <img src="../../../../public/assets/img/deck/new-deck.png" alt="Add a new card"
-              class="size-4 hover:size-5">
+              class="size-4 lg:size-5">
       </router-link>
    </div>
 
-   <h2 class="sp:mt-4
-              sm:mt-8
-              sp:text-sm
-              sm:text-lg">
+   <h2 class="mt-6 sm:mt-10
+              text-sm sm:text-lg">
      Liste des cartes du deck {{ deck.name }}
    </h2>
 
@@ -89,21 +89,20 @@ const deleteCard = (id, index)  => {
        You have no cards in this deck.
    </p>
    
-   <ul class="sp:mt-2 sm:mt-4">
-      <li class="flex content-center
-                 sp:mb-2
-                 sm:mb-4
-                 sp:text-xs
-                 sm:text-sm
-                 text-primary"
-          v-for="(card, index) in cards" :key="card.id">
-          <button class="px-2" @click="deleteCard(card.id, index)">
+   <ul class="mt-4 sm:mt-8">
+      <li v-for="(card, index) in cards" :key="card.id"
+          class="flex content-center
+                 mb-2 sm:mb-4
+                 text-xs sm:text-sm
+                 text-primary">
+
+          <button class="sm:px-2" @click="deleteCard(card.id, index)">
             <img src="../../../../public/assets/img/deck/delete.png" alt="delete deck"
-                        class="size-2 mr-4
-                               sm:size-4">
+                        class="size-3 mr-2
+                               sm:size-4 sm:mr-4">
           </button>
            <router-link :to="{ name: 'card', params: { deck_id: deck.id, card_id: card.id } }"
-                        class="ml-6">
+                        class="ml-2 sm:ml-6">
               {{ card.recto_name }}
            </router-link>
       </li>
