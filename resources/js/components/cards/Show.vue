@@ -48,10 +48,7 @@ function updateCard(deck_id, card_id) {
 </script>
 
 <template>
-    <h2 class="mr-8
-               text-xs
-               sm:text-sm
-               md:text-lg">
+    <h2 class="text-xs sm:text-sm md:text-lg">
        Modify your card
     </h2>
 
@@ -66,31 +63,33 @@ function updateCard(deck_id, card_id) {
         </DefaultButton>
     </div> -->
     
-
     <form method="POST" action=""
           class="flex flex-col
                  place-items-center
-                 mt-12">
+                 mt-4 sm:mt-12 md:mt-16">
         <input type="hidden" name="_token" :value="csrf">         
 
         <div class="xl:flex-row
-                    sp:w-60
-                    sm:w-96">
+                    w-60 sm:w-1/2 md:w-2/3 lg:w-1/2">
             <div>
                 <div class="flex text-xs sm:text-sm">
                     <label for="verso"
                            class="font-semibold">
                         Recto
                     </label>
-                    <p class="sp:ml-4 sm:ml-20">
+                    <p class="ml-4 sm:ml-20 
+                              sm:mb-2">
                         Initial keyword or definition : <br>
                         {{ card.recto_name }}
                     </p>
                 </div>
                 <textarea name="recto_name" id="recto" v-model="recto" cols="10" rows="5"
                           placeholder="Modify"
-                          class="border-2 border-stroke mb-8
-                               w-full">
+                          class="border-2 border-stroke
+                                 text-xs sm:text-sm 
+                                 mb-4 sm:mb-8
+                                 h-16 sm:h-32 md:h-48 lg:h-56
+                                 w-full">
                 </textarea>
             </div>
             
@@ -100,14 +99,18 @@ function updateCard(deck_id, card_id) {
                            class="font-semibold">
                         Verso
                     </label>
-                    <p class="sp:ml-4 sm:ml-20">
+                    <p class="ml-4 sm:ml-20
+                              sm:mb-2">
                         Initial answer : <br>
                         {{ card.verso_name }}
                     </p>
                 </div>
                 <textarea name="verso_name" id="verso" v-model="verso" cols="10" rows="5"
                           placeholder="Modify"
-                          class="border-2 border-stroke mb-12
+                          class="border-2 border-stroke
+                                text-xs sm:text-sm
+                                 mb-4 sm:mb-8 md:mb-12
+                                 h-16 sm:h-32 md:h-48 lg:h-56
                                  w-full">
                 </textarea>
             </div>
