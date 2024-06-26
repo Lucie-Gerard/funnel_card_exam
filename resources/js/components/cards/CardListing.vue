@@ -81,7 +81,7 @@ const deleteCard = (id, index)  => {
 
    <h2 class="mt-6 sm:mt-10
               text-sm sm:text-base">
-     Liste des cartes du deck {{ deck.name }}
+     List of the deck's cards "{{ deck.name }}""
    </h2>
 
    <p class="text-center mt-6 sm:mt-12
