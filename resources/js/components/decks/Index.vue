@@ -31,9 +31,9 @@ const deleteDeck = (id, index)  => {
 </script>
 
 <template>
-    <div class="flex justify-between mb-4 sm:mb-10">
+    <div class="flex justify-between mb-4 sm:mb-10">       
         <div class="flex items-center justify-start">
-            <h2 class="mr-2 sm:mr-8
+            <h2 class="mr-4 sm:mr-8
                        text-xs sm:text-sm md:text-lg">
                        Your decks
             </h2>

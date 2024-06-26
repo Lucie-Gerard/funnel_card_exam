@@ -80,11 +80,12 @@ const deleteCard = (id, index)  => {
    </div>
 
    <h2 class="mt-6 sm:mt-10
-              text-sm sm:text-lg">
+              text-sm sm:text-base">
      Liste des cartes du deck {{ deck.name }}
    </h2>
 
-   <p class="text-center mt-12"
+   <p class="text-center mt-6 sm:mt-12
+             text-xs sm:text-sm md:text-base"
       v-show="cards.length === 0">
        You have no cards in this deck.
    </p>

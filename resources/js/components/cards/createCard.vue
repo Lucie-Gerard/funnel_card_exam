@@ -59,8 +59,9 @@ function postCard() {
         <input type="hidden" name="_token" :value="csrf">
 
         <div class="xl:flex-row
-                    sp:w-60
-                    sm:w-96">
+                    text-xs sm:text-sm md:text-base 
+                    w-60 sm:w-1/2 md:w-2/3 lg:w-1/2
+                    mb-4 sm:mb-8">
             <div>
                 <label for="recto"
                     class="font-semibold
@@ -70,7 +71,9 @@ function postCard() {
                 </label>
                 <textarea name="recto_name" id="recto" v-model="recto" cols="10" rows="10"
                         placeholder="Key word or definition"
-                        class="border-2 border-stroke mb-8
+                        class="border-2 border-stroke 
+                               mb-4 sm:mb-8
+                               min-h-40 sm:min-h-64 md:min-h-80
                                w-full">
                 </textarea>
             </div>
@@ -84,7 +87,8 @@ function postCard() {
                 </label>
                 <textarea name="verso_name" id="verso" v-model="verso" cols="10" rows="10"
                           placeholder="Answer"
-                          class="border-2 border-stroke mb-12
+                          class="border-2 border-stroke
+                                 min-h-40 sm:min-h-64 md:min-h-80
                                  w-full">
                 </textarea>
             </div>
