@@ -5,7 +5,7 @@ const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('con
 import Input from '../modules/Input.vue';
 import DefaultButton from '../modules/DefaultButton.vue';
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import { useRoute } from 'vue-router'
 
 components: [
@@ -52,6 +52,16 @@ const deleteCard = (id, index)  => {
             console.log(error)
         });
 }
+
+
+const filterCard = ref('');
+
+const filteredCard = computed(() => {
+    let filter = filterCard.value
+
+    if (!filter.length) return cards.value;
+    return cards.value.filter(card => card.recto_name.toLowerCase().includes(filter));
+})
 </script>
 
 <template>
@@ -70,9 +80,9 @@ const deleteCard = (id, index)  => {
    </form>
 
    <div class="flex items-center justify-start">
-        <Input class="mr-8 sm:mr-16 pl-2"
+        <Input v-model="filterCard"
+               class="mr-8 sm:mr-16 pl-2"
                placeholder="Search for a card" />
-
       <router-link :to="{ name: 'newCard', params: {id: deck.id} }">
          <img src="../../../../public/assets/img/deck/new-deck.png" alt="Add a new card"
               class="size-4 lg:size-5">
@@ -91,7 +101,7 @@ const deleteCard = (id, index)  => {
    </p>
    
    <ul class="mt-4 sm:mt-8">
-      <li v-for="(card, index) in cards" :key="card.id"
+      <li v-for="(card, index) in filteredCard" :key="card.id"
           class="flex content-center
                  mb-2 sm:mb-4
                  text-xs sm:text-sm
