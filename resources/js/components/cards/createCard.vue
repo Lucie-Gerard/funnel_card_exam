@@ -33,10 +33,7 @@ function postCard() {
 </script>
 
 <template>
-    <h2 class="mr-8
-               text-xs
-               sm:text-sm
-               md:text-lg">
+    <h2 class="text-xs sm:text-sm md:text-lg">
        Create your card
     </h2>
 
@@ -53,20 +50,16 @@ function postCard() {
     
 
     <form method="POST"
-          class="flex flex-col
-                 place-items-center
-                 mt-12">
+          class="flex flex-col place-items-center
+                 mt-4 sm:mt-8 md:mt-12">
         <input type="hidden" name="_token" :value="csrf">
 
-        <div class="xl:flex-row
-                    text-xs sm:text-sm md:text-base 
+        <div class="text-xs sm:text-sm md:text-base 
                     w-60 sm:w-1/2 md:w-2/3 lg:w-1/2
                     mb-4 sm:mb-8">
             <div>
                 <label for="recto"
-                    class="font-semibold
-                           text-xs
-                           sm:text-sm">
+                    class="font-semibold text-xs sm:text-sm">
                     Recto: 
                 </label>
                 <textarea name="recto_name" id="recto" v-model="recto" cols="10" rows="10"
@@ -80,9 +73,7 @@ function postCard() {
             
             <div>
                 <label for="verso"
-                    class="font-semibold
-                           text-xs
-                           sm:text-sm">
+                    class="font-semibold text-xs sm:text-sm">
                     Verso:
                 </label>
                 <textarea name="verso_name" id="verso" v-model="verso" cols="10" rows="10"
