@@ -39,6 +39,7 @@ const score = ref(0);
     </h2>
 
     <section>
+        <!-- Montre les cartes jusqu'à la dernière puis devient hidden -->
         <div v-show="cards.length > nextCard"
              class="flex flex-col place-items-center">
             <div v-for="(card, index) in cards" :key="card.id">
@@ -47,6 +48,7 @@ const score = ref(0);
                             min-h-60 sm:min-h-80
                             mb-1 border-2 border-stroke"
                         v-show="index === nextCard">
+                        <!-- Permet de montrer carte par carte -->
                     <p class="px-4 sm:px-8
                             mt-2 sm:mt-4">
                         {{ card.recto_name }}
@@ -70,13 +72,15 @@ const score = ref(0);
             <DefaultButton @click.stop="displayAnswer=true">
                 Show the answer
             </DefaultButton>
-
+            <!-- Montre la réponse et la div ci-dessous -->
                 
             <div class="flex items-end 
                         gap-4 sm:gap-8 md:gap-12 lg:gap-16
                         mt-4 sm:mt-8"
                 v-show="displayAnswer"
                 @click="displayAnswer=false">
+                <!-- Cache la réponse et cette div pour afficher la prochaine carte sans la réponse (je sais, c'est un peu hacky) -->
+
                 <p class="text-xs sm:text-sm md:text-base">
                     Was your answer correct ?
                 </p>
@@ -90,6 +94,7 @@ const score = ref(0);
                 </div>
             </div>
         </div>
+        <!-- Affiche cette div une fois la dernière carte jouée et affiche le score plus un bouton pour rediriger vers la page index -->
         <div v-show="cards.length === nextCard"
              class="flex flex-col place-items-center">
             <div class="flex justify-center items-center
@@ -108,6 +113,5 @@ const score = ref(0);
                 </router-link>
             </DefaultButton>
         </div>
-        
     </section>
 </template>

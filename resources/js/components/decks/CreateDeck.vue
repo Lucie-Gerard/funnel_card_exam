@@ -26,12 +26,10 @@ onMounted(() => {
 
 const deck_name = ref('');
 const catId = ref();
-//const userId = 1;
 
 function postDeck() {
     axios.post('/deck/create', {
         'name': deck_name,
-        //'user_id': userId,
         'category_id': catId,
     })
         .then(response => {

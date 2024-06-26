@@ -31,7 +31,7 @@ const deleteDeck = (id, index)  => {
 
 
 const filterDeck = ref('');
-
+// Filtre la valeur de l'input pour n'afficher que les decks ayant un nom équivalent à cette valeur
 const filteredDeck = computed(() => {
     let filter = filterDeck.value.toLowerCase();
 
@@ -64,7 +64,8 @@ const filteredDeck = computed(() => {
                 class="size-2 sm:size-4 absolute right-4 sm:right-6">
         </form>
     </div>
-        
+      
+    <!-- Montre ce message que s'il n'y a aucun deck à afficher -->
     <p class="text-center"
        v-show="decks.length === 0">
         You have no deck yet. <br>
@@ -79,6 +80,7 @@ const filteredDeck = computed(() => {
                     mb-4 sm:mb-8 
                     border-2 border-stroke rounded-sm"
              v-for="(deck, index) in filteredDeck" :key="deck.id">
+<!-- Boucle sur la fonction qui permet de filtrer les noms de deck avec la valeur de l'input -->
 
             <h3 class="mt-2 sm:mt-4 mx-4 max-h-10 md:max-h-36
                        overflow-hidden

@@ -52,6 +52,8 @@ function updateCard(deck_id, card_id) {
        Modify your card
     </h2>
 
+    <!-- Ces boutons seront utilisés lorsque d'autres fonctionnalités plus complexes seront implémentées -->
+
     <!-- <div class="flex justify-center mt-16">
         <DefaultButton class="mr-20"
             @click="verso === false">

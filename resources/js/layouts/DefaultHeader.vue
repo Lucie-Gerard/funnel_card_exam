@@ -1,5 +1,6 @@
 <script>
-const later = true;
+
+// Cet header est utilisé pour la partie principale de l'app (decks, cartes, etc)
 </script>
 
 <template>
@@ -20,18 +21,21 @@ const later = true;
                                 Decks
                     </router-link>
                 </li>
-                <li class="sp:py-2 sp:px-2
-                           sm:py-4 sm:px-4" v-show="later">
+
+                <!-- Ces deux li seront utilisés lorsque la fonctionnalité login sera implémentée -->
+                 
+                <!-- <li class="sp:py-2 sp:px-2
+                           sm:py-4 sm:px-4"">
                     <router-link :to="{ name: 'account' }">
                                 Your account
                     </router-link>
                 </li>
-                <li class="flex items-center px-2" v-show="later">
+                <li class="flex items-center px-2">
                     <router-link :to="{ name: 'login' }">
                         <img src="../../../public/assets/img/nav/disconnect.png" alt="Disconnect"
                             class="size-4">
                     </router-link>
-                </li>
+                </li> -->
             </ul>
         </nav>
     </header>

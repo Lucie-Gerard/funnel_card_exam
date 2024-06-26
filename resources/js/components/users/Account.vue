@@ -4,6 +4,8 @@ import DefaultButton from '../modules/DefaultButton.vue';
 components: [
     DefaultButton
 ]
+
+// Pas encore fonctionnel
 </script>
 
 <template>

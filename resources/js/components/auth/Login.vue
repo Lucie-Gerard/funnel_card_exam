@@ -4,6 +4,8 @@ import AuthButton from '../modules/AuthButton.vue';
 components: [
     AuthButton
 ]
+
+// Pas encore fonctionnel
 </script>
 
 <template>

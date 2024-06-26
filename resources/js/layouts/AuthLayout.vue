@@ -1,7 +1,7 @@
 <script setup>
 import { RouterView } from 'vue-router';
 
-
+// Ce layout sera utilisé pour les parties login et register de l'app
 </script>
 
 <template>

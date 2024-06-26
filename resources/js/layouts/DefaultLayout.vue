@@ -5,6 +5,7 @@ components: [
     DefaultHeader
 ]
 
+// Ce layout est utilisé pour la partie principale de l'app (decks, cartes, etc)
 </script>
 
 <template>
