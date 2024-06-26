@@ -57,7 +57,7 @@ const deleteCard = (id, index)  => {
 const filterCard = ref('');
 
 const filteredCard = computed(() => {
-    let filter = filterCard.value
+    let filter = filterCard.value.toLowerCase();
 
     if (!filter.length) return cards.value;
     return cards.value.filter(card => card.recto_name.toLowerCase().includes(filter));

@@ -33,7 +33,7 @@ const deleteDeck = (id, index)  => {
 const filterDeck = ref('');
 
 const filteredDeck = computed(() => {
-    let filter = filterDeck.value
+    let filter = filterDeck.value.toLowerCase();
 
     if (!filter.length) return decks.value;
     return decks.value.filter(deck => deck.name.toLowerCase().includes(filter));
