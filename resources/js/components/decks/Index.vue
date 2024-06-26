@@ -1,6 +1,11 @@
 <script setup>
+import Input from '../modules/Input.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
+
+components: {
+    Input
+}
 
 const decks = ref([]);
 
@@ -41,13 +46,13 @@ const deleteDeck = (id, index)  => {
             </router-link>
         </div>
 
-        <form class="flex items-center justify-end">
-            <input type="text" placeholder="Search for a deck"
-                class="border-2 border-stroke rounded-sm mr-8 pl-2">
-            <button class="">
-                <img src="../../../../public/assets/img/deck/search-icon.png" alt="search for a deck"
-                    class="size-6">
-            </button>
+        <form class="flex items-center justify-end relative">
+            <Input placeholder="Search for a deck"
+                    class="mr-2 sm:mr-4
+                          pl-1 sm:pl-2
+                          pr-6 sm:pr-8" />
+            <img src="../../../../public/assets/img/deck/search-icon.png" alt="search for a deck"
+                class="size-2 sm:size-4 absolute right-4 sm:right-6">
         </form>
     </div>
         
